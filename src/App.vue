@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
+    
+    <div id="nav" v-if="hola === false">
       <div class="main-header" data-background-color="purple">
           <!-- Logo Header -->
           <div class="logo-header">
@@ -243,7 +244,7 @@
                                   </li>
                                   <li>
                                       <a href="#settings">
-                                          <span class="link-collapse">Settings</span>
+                                          <span class="link-collapse">Settings {{hola}}</span>
                                       </a>
                                   </li>
                               </ul>
@@ -503,4 +504,17 @@
     <router-view/>
   </div>
 </template>
+<script>
+// @ is an alias to /src
+//import HelloWorld from '@/components/HelloWorld.vue'
+
+export default {
+  name: 'app',
+  data(){
+      return {
+          hola: false
+      }
+  }
+}
+</script>
 
