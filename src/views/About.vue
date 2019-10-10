@@ -1259,9 +1259,9 @@
 //import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  // name: 'about',
-  // components: {
-  //   HelloWorld
-  // }
+  name: 'about',
+//   components: {
+//     HelloWorld
+//   }
 }
 </script>
