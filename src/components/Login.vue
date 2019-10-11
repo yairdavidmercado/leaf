@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="wrapper wrapper-login">
+        <div v-if="view === 'login'" class="wrapper wrapper-login">
             <div class="container container-login animated fadeIn">
                 <p class="text-center">
                     <img src="@/assets/img/leaf.jpg" width="100px" alt="">
@@ -8,12 +8,12 @@
                 <!-- <h3 class="text-center">Iniciar sesion</h3> -->
                 <form class="login-form">
                     <div class="form-group form-floating-label">
-                        <input id="username" name="username" type="text" class="form-control input-border-bottom" required>
-                        <label for="username" class="placeholder">Username</label>
+                        <input id="Correo electrónico" name="Correo electrónico" type="text" class="form-control input-border-bottom" required>
+                        <label for="Correo electrónico" class="placeholder">Correo electrónico</label>
                     </div>
                     <div class="form-group form-floating-label">
                         <input id="password" name="password" type="password" class="form-control input-border-bottom" required>
-                        <label for="password" class="placeholder">Password</label>
+                        <label for="password" class="placeholder">Contraseña</label>
                         <div class="show-password">
                             <i class="flaticon-interface"></i>
                         </div>
@@ -21,23 +21,23 @@
                     <div class="row form-sub m-0">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="rememberme">
-                            <label class="custom-control-label" for="rememberme">Remember Me</label>
+                            <label class="custom-control-label" for="rememberme">No cerrar sesión</label>
                         </div>
                         
-                        <a href="#" class="link float-right">Forget Password ?</a>
+                        <a href="#" class="link float-right">¿ Olvidaste tu contraseña ?</a>
                     </div>
                     <div class="form-action mb-3">
                         <input class="btn btn-secondary btn-rounded btn-login" type="button" value="Iniciar sesion">
                         <!-- <a href="#" class="btn btn-secondary btn-rounded btn-login">Iniciar sesion</a> -->
                     </div>
                     <div class="login-account">
-                        <span class="msg">Don't have an account yet ?</span>
-                        <a href="#" id="show-signup" class="link"> Sign Up</a>
+                        <span class="msg">¿ Aún no tengo una cuenta ?</span>
+                        <a href="#" id="show-signup" class="link"> Regístrate</a>
                     </div>
                 </form>
             </div>
 
-            <div class="container container-signup animated fadeIn">
+            <div v-if="view === 'register'" class="container container-signup animated fadeIn">
                 <h3 class="text-center">Sign Up</h3>
                 <div class="login-form">
                     <div class="form-group form-floating-label">
@@ -81,6 +81,11 @@
 <script>
 export default {
   name: 'login',
+  data (){
+      return{
+          view: 'login'
+      }
+  },
   props: {
     msg: String
   }
