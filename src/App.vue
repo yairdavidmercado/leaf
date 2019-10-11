@@ -3,7 +3,7 @@
         <div v-if="this.$route.path !== '/login'">
             <Menu></Menu>
         </div>
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
 <script>

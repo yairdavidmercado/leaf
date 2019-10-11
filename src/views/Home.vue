@@ -1,12 +1,10 @@
 <template>
   <div class="home">
-    
     <div class="main-panel">
         <div class="content">
             <div class="page-inner">
                 <div class="page-header">
                     <h4 class="page-title">Hello word</h4>
-                    <example-components></example-components>
                     <div class="btn-group btn-group-page-header ml-auto">
                         <button type="button" class="btn btn-light btn-round btn-page-header-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-ellipsis-h"></i>
@@ -557,6 +555,6 @@
 //import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'home',
+  name: 'Home',
 }
 </script>

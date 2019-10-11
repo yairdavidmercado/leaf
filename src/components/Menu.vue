@@ -230,7 +230,7 @@
                                 <div class="collapse in" id="collapseExample">
                                     <ul class="nav">
                                         <li>
-                                            <router-link to="/">Home</router-link>
+                                            <router-link to="/home">Home</router-link>
                                             <!-- <a href="#profile">
                                                 <span class="link-collapse">My Profile</span>
                                             </a> -->

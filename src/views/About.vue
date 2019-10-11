@@ -1254,12 +1254,10 @@
     <!-- <HelloWorld msg="About to Your Vue.js App"/> -->
   </div>
 </template>
-<script>
-// @ is an alias to /src
-//import HelloWorld from '@/components/HelloWorld.vue'
 
+<script>
 export default {
-  name: 'about',
+  name: 'about'
 //   components: {
 //     HelloWorld
 //   }
