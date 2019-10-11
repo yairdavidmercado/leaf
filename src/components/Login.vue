@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div v-if="view === 'login'" class="wrapper wrapper-login">
-            <div class="container container-login animated fadeIn">
+        <div  class="wrapper wrapper-login">
+            <div v-if="view === 'login'" class="container container-login animated fadeIn">
                 <p class="text-center">
                     <img src="@/assets/img/leaf.jpg" width="100px" alt="">
                 </p>
@@ -32,12 +32,12 @@
                     </div>
                     <div class="login-account">
                         <span class="msg">¿ Aún no tengo una cuenta ?</span>
-                        <a href="#" id="show-signup" class="link"> Regístrate</a>
+                        <a @click="goRegister" href="#" id="show-signup" class="link"> Regístrate</a>
                     </div>
                 </form>
             </div>
 
-            <div v-if="view === 'register'" class="container container-signup animated fadeIn">
+            <div v-else-if="view == 'register'" class="container container-signup animated fadeIn">
                 <h3 class="text-center">Sign Up</h3>
                 <div class="login-form">
                     <div class="form-group form-floating-label">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="form-action">
-                        <a href="#" id="show-signin" class="btn btn-danger btn-rounded btn-login mr-3">Cancel</a>
+                        <a @click="goLogin" href="#" id="show-signin" class="btn btn-danger btn-rounded btn-login mr-3">Cancel</a>
                         <a href="#" class="btn btn-primary btn-rounded btn-login">Sign Up</a>
                     </div>
                 </div>
@@ -88,6 +88,14 @@ export default {
   },
   props: {
     msg: String
+  },
+  methods: {
+    goRegister: function() {
+      this.view = 'register'
+    },
+    goLogin: function() {
+      this.view = 'login'
+    }
   }
 }
 </script>
