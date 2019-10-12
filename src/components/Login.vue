@@ -3,7 +3,7 @@
         <div  class="wrapper wrapper-login">
             <div v-if="view === 'login'" class="container container-login animated fadeIn">
                 <p class="text-center">
-                    <img src="@/assets/img/leaf.jpg" width="100px" alt="">
+                    <img src="@/assets/img/leaf.svg" width="100px" alt="">
                 </p>
                 <!-- <h3 class="text-center">Iniciar sesion</h3> -->
                 <form class="login-form">
@@ -38,26 +38,55 @@
             </div>
 
             <div v-else-if="view == 'register'" class="container container-signup animated fadeIn">
-                <h3 class="text-center">Sign Up</h3>
+                <p class="text-center">
+                    <img src="@/assets/img/leafs.svg" width="100px" alt="">
+                </p>
+                <h3 class="text-center">Regístrate</h3>
                 <div class="login-form">
                     <div class="form-group form-floating-label">
-                        <input  id="fullname" name="fullname" type="text" class="form-control input-border-bottom" required>
-                        <label for="fullname" class="placeholder">Fullname</label>
+                        <input  id="id" name="id" type="text" class="form-control input-border-bottom" required>
+                        <label for="id" class="placeholder">Número de Identificación</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-floating-label">
+                                <input  id="nombre1" name="nombre1" type="text" class="form-control input-border-bottom" required>
+                                <label for="nombre1" class="placeholder">Primer Nombre</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-floating-label">
+                                <input  id="nombre2" name="nombre2" type="text" class="form-control input-border-bottom" required>
+                                <label for="nombre2" class="placeholder">Segundo Nombre</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-floating-label">
+                                <input  id="apellido1" name="apellido1" type="text" class="form-control input-border-bottom" required>
+                                <label for="apellido1" class="placeholder">Primer Apellido</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-floating-label">
+                                <input  id="apellido2" name="apellido2" type="text" class="form-control input-border-bottom" required>
+                                <label for="apellido2" class="placeholder">Segundo Apellido</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group form-floating-label">
-                        <input  id="email" name="email" type="email" class="form-control input-border-bottom" required>
+                        <input  id="email" name="text" type="email" class="form-control input-border-bottom" required>
                         <label for="email" class="placeholder">Email</label>
                     </div>
                     <div class="form-group form-floating-label">
-                        <input  id="passwordsignin" name="passwordsignin" type="password" class="form-control input-border-bottom" required>
-                        <label for="passwordsignin" class="placeholder">Password</label>
+                        <input  id="password" name="password" type="password" class="form-control input-border-bottom" required>
+                        <label for="password" class="placeholder">Contraseña</label>
                         <div class="show-password">
                             <i class="flaticon-interface"></i>
                         </div>
                     </div>
                     <div class="form-group form-floating-label">
                         <input  id="confirmpassword" name="confirmpassword" type="password" class="form-control input-border-bottom" required>
-                        <label for="confirmpassword" class="placeholder">Confirm Password</label>
+                        <label for="confirmpassword" class="placeholder">Confirmar Contraseña</label>
                         <div class="show-password">
                             <i class="flaticon-interface"></i>
                         </div>
@@ -65,12 +94,12 @@
                     <div class="row form-sub m-0">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" name="agree" id="agree">
-                            <label class="custom-control-label" for="agree">I Agree the terms and conditions.</label>
+                            <label class="custom-control-label" for="agree">Acepto los terminos y condiciones.</label>
                         </div>
                     </div>
                     <div class="form-action">
-                        <a @click="goLogin" href="#" id="show-signin" class="btn btn-danger btn-rounded btn-login mr-3">Cancel</a>
-                        <a href="#" class="btn btn-primary btn-rounded btn-login">Sign Up</a>
+                        <a @click="goLogin" href="#" id="show-signin" class="btn btn-danger btn-rounded btn-login mr-3">Cancelar</a>
+                        <a href="#" class="btn btn-secondary btn-rounded btn-login">Regístrate</a>
                     </div>
                 </div>
             </div>
