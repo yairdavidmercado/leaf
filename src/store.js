@@ -6,13 +6,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    data:{
-      hola: 0
-    }
+    hola: 'hola Perros',
+    todos: [
+      { id: 1, text: '...', done: true },
+      { id: 2, text: '...', done: false }
+    ]
   },
   mutations: {
     logout: (state) => {
       state.accessToken = null;
+    }
+  },
+  getters: {
+    doneTodos (state) {
+      return state.todos.filter(todo => todo.done === false)
     }
   },
   actions: {
