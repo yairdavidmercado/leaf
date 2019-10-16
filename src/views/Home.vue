@@ -4,7 +4,13 @@
         <div class="content">
             <div class="page-inner">
                 <div class="page-header">
-                    <h4 class="page-title">Hello word {{hola}}</h4>
+                    <ul v-for="item of doneUser" :key="item.id">
+                        <li>
+                           {{item.id}} - {{item.nombre}} - {{item.estado}} 
+                        </li>
+                    </ul>
+                    <button @click="getUser" class="btn btn-success">Ver</button>
+                    <h4 class="page-title">Hello word </h4>
                     <div class="btn-group btn-group-page-header ml-auto">
                         <button type="button" class="btn btn-light btn-round btn-page-header-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-ellipsis-h"></i>
@@ -553,12 +559,14 @@
 <script>
 // @ is an alias to /src
 //import HelloWorld from '@/components/HelloWorld.vue'
-import store from '@/store'
 import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
+import store from '@/store'
 
 export default {
   name: 'Home',
-  store,
   computed: {
       count(){
           return store.getters.doneTodos
@@ -566,7 +574,12 @@ export default {
       count2(){
           return store.state.todos
       },
-    ...mapState(['hola'])
+    ...mapState(['user']),
+    ...mapGetters(['doneUser'])
+  },
+  methods:{
+      ...mapMutations(['llenarUser']),
+      ...mapActions(['getUser'])
   }
 }
 </script>

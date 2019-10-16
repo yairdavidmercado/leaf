@@ -1,0 +1,5 @@
+[
+    {"nombre":"Yair David Mercado Cordero","id": 1, "estado":true},
+    {"nombre":"Prueba","id": 2, "estado":false},
+    {"nombre":"Stiven Spielberg","id": 3, "estado":true}
+]
