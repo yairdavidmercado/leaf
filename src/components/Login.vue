@@ -1,6 +1,14 @@
 <template>
     <div>
         <div  class="wrapper wrapper-login">
+            <table class="table">
+                <tbody v-for="item of tabla" :key="item.id">
+                    <td>{{item.id}}</td>
+                    <td>{{item.login}}</td>
+                    <td>{{item.url}}</td>
+                </tbody>
+            </table>
+            <button @click="saveRegister" class="btn btn-success">Ver tabla</button>
             <div v-if="view === 'login'" class="container container-login animated fadeIn">
                 <p class="text-center">
                     <img src="@/assets/img/leaf.svg" width="100px" alt="">
@@ -108,8 +116,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { mapActions } from 'vuex'
+import store from '@/store'
+
 export default {
   name: 'login',
+  store,
   data (){
       return{
           view: 'login'
@@ -118,29 +131,17 @@ export default {
   props: {
     msg: String
   },
+  computed: {
+    ...mapState(['tabla']),
+  },
   methods: {
-    saveRegister: function(){
-        HTTP.post('users/hadley/orgs',{
-            params:{
-                user:'hola',
-                pass:'*****'
-            }
-        })
-        .then(response => {
-        this.axios1 = response.data
-        alert(response.data)
-        //this.loading = false
-        })
-        .catch(error => {
-        console.log(error)
-        })
-    },
     goRegister: function() {
       this.view = 'register'
     },
     goLogin: function() {
       this.view = 'login'
-    }
+    },
+    ...mapActions(['saveRegister'])
   }
 }
 </script>

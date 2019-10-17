@@ -5,9 +5,6 @@
           <router-view></router-view>
         </div>
         <div v-else >
-            <div v-for="item of count2" :key="item.id">
-              {{item.id}} - {{item.text}} - {{item.done}}
-            </div>
             <login></login>
         </div>
   </div>

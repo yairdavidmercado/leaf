@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import router from './router';
+import {HTTP} from '@/http-common'
 
 Vue.use(Vuex)
 
@@ -12,7 +13,7 @@ export default new Vuex.Store({
       { id: 2, text: '...', done: false }
     ],
     user: [],
-    axios1: []
+    tabla: []
   },
   mutations: {
     logout: (state) => {
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     },
     llenarUser(state, userActions){
       state.user = userActions
+    },
+    llenarTabla(state,tablaAction){
+      state.tabla = tablaAction
     }
   },
   getters: {
@@ -31,6 +35,18 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    saveRegister: async function({commit}){
+        HTTP.get('users/hadley/orgs')
+        .then(response => {
+        commit('llenarTabla', response.data)
+        //this.tabla = response.data
+        //alert(response.data)
+        //this.loading = false
+        })
+        .catch(error => {
+        console.log(error)
+        })
+    },
     getUser: async function({commit}){
       const data = await fetch('user.json')
       const usuario = await data.json()
