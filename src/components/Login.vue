@@ -119,6 +119,22 @@ export default {
     msg: String
   },
   methods: {
+    saveRegister: function(){
+        HTTP.post('users/hadley/orgs',{
+            params:{
+                user:'hola',
+                pass:'*****'
+            }
+        })
+        .then(response => {
+        this.axios1 = response.data
+        alert(response.data)
+        //this.loading = false
+        })
+        .catch(error => {
+        console.log(error)
+        })
+    },
     goRegister: function() {
       this.view = 'register'
     },

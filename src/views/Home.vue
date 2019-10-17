@@ -9,6 +9,12 @@
                            {{item.id}} - {{item.nombre}} - {{item.estado}} 
                         </li>
                     </ul>
+
+                    <ul v-for="item of axios1" :key="item.id">
+                        <li>
+                           {{item.id}} - {{item.login}} - {{item.url}} 
+                        </li>
+                    </ul>
                     <button @click="getUser" class="btn btn-success">Ver</button>
                     <h4 class="page-title">Hello word </h4>
                     <div class="btn-group btn-group-page-header ml-auto">
@@ -564,9 +570,31 @@ import { mapGetters } from 'vuex'
 import { mapMutations } from 'vuex'
 import { mapActions } from 'vuex'
 import store from '@/store'
+import {HTTP} from '@/http-common'
 
 export default {
   name: 'Home',
+  data () {
+      return {
+          axios1 : []
+      }
+  },
+  mounted() {
+    HTTP.get('users/hadley/orgs',{
+        params:{
+            user:'hola',
+            pass:'*****'
+        }
+    })
+    .then(response => {
+      this.axios1 = response.data
+      alert(response.data)
+      //this.loading = false
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  },
   computed: {
       count(){
           return store.getters.doneTodos

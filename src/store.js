@@ -11,7 +11,8 @@ export default new Vuex.Store({
       { id: 1, text: '...', done: true },
       { id: 2, text: '...', done: false }
     ],
-    user: []
+    user: [],
+    axios1: []
   },
   mutations: {
     logout: (state) => {
