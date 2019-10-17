@@ -7,13 +7,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    hola: 'hola Perros',
+    loading: true,
     todos: [
       { id: 1, text: '...', done: true },
       { id: 2, text: '...', done: false }
     ],
     user: [],
-    tabla: []
+    tabla: [],
+    isLoading: false
   },
   mutations: {
     logout: (state) => {
@@ -36,9 +37,11 @@ export default new Vuex.Store({
   },
   actions: {
     saveRegister: async function({commit}){
+      this.state.isLoading = true
         HTTP.get('users/hadley/orgs')
         .then(response => {
         commit('llenarTabla', response.data)
+        this.state.isLoading = false
         //this.tabla = response.data
         //alert(response.data)
         //this.loading = false

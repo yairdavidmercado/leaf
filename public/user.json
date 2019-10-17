@@ -1,5 +1,3 @@
 [
-    {"nombre":"Yair David Mercado Cordero","id": 1, "estado":true},
-    {"nombre":"Prueba","id": 2, "estado":false},
-    {"nombre":"Stiven Spielberg","id": 3, "estado":true}
+    {"id":1,"identificacion":"10781411","nombre1":"YEISER","nombre2":null,"apellido1":"MERCADO","apellido2":null,"email":"yeisermercado@hotmail.com","emailConfirmado":false,"telefono":null,"password":"santi10.","direccion":null,"departamentoId":null,"municipioId":null,"fechaNac":"0001-01-01T00:00:00","fechaAlta":"2019-10-17T11:12:46.004886","avatar":null,"estado":"ACTIVO","tokenId":1,"departamento":null,"municipio":null,"token":null}
 ]

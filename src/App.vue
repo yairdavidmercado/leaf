@@ -5,6 +5,7 @@
           <router-view></router-view>
         </div>
         <div v-else >
+            <loading :active.sync="isLoading" ></loading>
             <login></login>
         </div>
   </div>
@@ -14,12 +15,16 @@
 import Menu from '@/components/Menu.vue'
 import Login from '@/components/Login.vue'
 import store from '@/store'
+import { mapState } from 'vuex'
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css'
 
 export default {
   name: 'app',
   components: {
     Menu,
-    Login
+    Login,
+    Loading
   },
   data(){
       return {
@@ -27,6 +32,7 @@ export default {
       }
   },
   computed: {
+    ...mapState(['isLoading']),
     count () {
       return store.getters.doneTodos
     },
@@ -35,7 +41,7 @@ export default {
     },
   },
   methods: {
-      
+       Loading
   },
 }
 </script>
